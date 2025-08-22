@@ -1,5 +1,5 @@
 local TweenService = game:GetService("TweenService")
-local Sounds = script:WaitForChild("Sua pasta de musica aqui") 
+local Sounds = script:WaitForChild("Sounds") -- script:WaitForChild("sua pasta de música.") 
 
 local function play(name, volume) -- toca a música com tween service.
 	local sound : Sound = Musics:WaitForChild(name) -- nome da música.
@@ -31,3 +31,4 @@ play("Sound", 0.25) -- play("nome da música que quer tocar", volume total)
 wait(50) -- total de segundos que vai esperar antes de parar a música.
 
 stop("Sound") -- stop("nome da música que quer parar")
+
