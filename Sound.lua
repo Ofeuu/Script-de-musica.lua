@@ -1,11 +1,11 @@
-local tweenService = game:GetService("TweenService")
-local musics = script:WaitForChild("Musics")
+local TweenService = game:GetService("TweenService")
+local Sounds = script:WaitForChild("Sua pasta de musica aqui") 
 
-local function play(name, volume) -- toca a m˙sica com tween service
-	local sound : Sound = musics:WaitForChild(name)
+local function play(name, volume) -- toca a m√∫sica com tween service.
+	local sound : Sound = Musics:WaitForChild(name) -- nome da m√∫sica.
 	sound.Volume = 0
 
-	local tween = tweenService:Create(sound, TweenInfo.new(15), {Volume = volume})
+	local tween = tweenService:Create(sound, TweenInfo.new(15), {Volume = volume}) -- tweenService:Create(m√∫sica, TweenInfo.new(velocidade), {Volume = volume}) 
 
 	sound:Play()
 
@@ -13,20 +13,21 @@ local function play(name, volume) -- toca a m˙sica com tween service
 	tween:Play()
 end
 
-local function stop(name) -- finaliza a m˙sica com tween service
-	local sound : Sound = musics:WaitForChild(name)
+local function stop(name) -- finaliza a m√∫sica com tween service
+	local sound : Sound = musics:WaitForChild(name) -- nome da musica
 
-	local tween = tweenService:Create(sound, TweenInfo.new(15), {Volume = 0}) 
+	local tween = tweenService:Create(sound, TweenInfo.new(15), {Volume = 0}) -- tweenService:Create(m√∫sica, TweenInfo.new(velocidade), {Volume = volume que vai parar}) 
 
 	tween:Play()
 
-	tween.Completed:Connect(function()
+	tween.Completed:Connect(function() -- quando completar o tween, parar a m√∫sica.
 		sound:Stop()
 	end)
 end
 
 wait(3)
-play("Sound", 0.25) -- funÁ„o
+play("Sound", 0.25) -- play("nome da m√∫sica que quer tocar", volume total) 
 
-wait(50)
-stop("Sound") -- funÁ„o
+wait(50) -- total de segundos que vai esperar antes de parar a m√∫sica.
+
+stop("Sound") -- stop("nome da m√∫sica que quer parar")
